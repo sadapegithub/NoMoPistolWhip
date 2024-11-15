@@ -1,0 +1,8 @@
+fx_version 'cerulean'
+game 'gta5'
+client_script 'client.js'
+client_script 'data/js_files_for_modded_weapons-example/*.js' 
+server_script 'meta/js_files_for_modded_weapons-example/*.js'
+description 'A FiveM script that removes pistol whipping.'
+version '1.0.0'
+author 'sadape'
