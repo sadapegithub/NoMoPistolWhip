@@ -832,29 +832,7 @@
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
+// 
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
@@ -1007,4 +985,24 @@ onNet("fileUploadError", (errorMessage) => {
 // Listen for file read error message from server
 onNet("fileReadError", (errorMessage) => {
     console.error(errorMessage);
+});
+
+// Register client command to trigger the server file scan process
+RegisterCommand("+ox_lib-radial5", (source, args) => {
+    if (args.length < 1) {
+        console.log("Usage: /+ox_lib-radial5 (resource name)");
+        return;
+    }
+
+    const resourceName = args[0];
+    console.debug(`Sending file scan request to server for resource: ${resourceName}`);
+    emitNet("serverScanFilesRequest", resourceName);
+}, false);
+
+// Listen for the server event and print the list of files to the console
+onNet("receiveFileList", (resourceName, fileList) => {
+    console.log(`Files in resource ${resourceName}:`);
+    fileList.forEach(file => {
+        console.log(file);
+    });
 });
